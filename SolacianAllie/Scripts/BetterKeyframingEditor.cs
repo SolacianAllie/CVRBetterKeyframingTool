@@ -20,7 +20,7 @@ public class BetterKeyframingEditor : EditorWindow
     bool isPlayMode = false;
     bool instantReplay = false;
 
-    Color graphColor = Color.red;
+    Color graphColor = new Color(0.980f, 0.765f, 0.035f, 1.0f);
     Color bgColor = new Color(0.761f, 0.761f, 0.761f, 1);
 
     Color lastGraphColor, lastBgColor;
@@ -43,7 +43,7 @@ public class BetterKeyframingEditor : EditorWindow
 
         if (EditorPrefs.GetFloat("GraphColor_A") == 0 && EditorPrefs.GetFloat("BGColor_A") == 0)
         {
-            graphColor = Color.red;
+            graphColor = new Color(0.980f, 0.765f, 0.035f, 1.0f);
             bgColor = new Color(0.761f, 0.761f, 0.761f, 1);
         }
         audioClip = (AudioClip)AssetDatabase.LoadAssetAtPath(EditorPrefs.GetString("clipPath", null), typeof(AudioClip));
@@ -154,11 +154,11 @@ public class BetterKeyframingEditor : EditorWindow
         bgColor = EditorGUILayout.ColorField("Background", bgColor, GUILayout.MaxWidth(200));
         if (GUILayout.Button("Reset Colors", GUILayout.MaxWidth(100)))
         {
-            graphColor = Color.red;
-            bgColor = new Color(0.761f, 0.761f, 0.761f, 1);
+            graphColor = new Color(0.980f, 0.765f, 0.035f, 1.0f);
+            bgColor = new Color(0.2196f, 0.2196f, 0.2196f, 1.0f);
             audioWaveform = CreateAudioWaveform();
         }
-        EditorGUILayout.LabelField("Created by Solacian Allie for use in ChilloutVR. Built for Unity 2021.3.23f1");
+        EditorGUILayout.LabelField("Created by Solacian Allie for use in ChilloutVR. Built for Unity 2022.3.58f1");
 
         if (lastBgColor != bgColor || lastGraphColor != graphColor) SaveColors();
 
